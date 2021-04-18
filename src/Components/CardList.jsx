@@ -7,7 +7,7 @@ const CardList = () => {
   const [info, setInfo] = useState({});
   const [page, setPage] = useState(1);
 
-  const getCharacters = async () => {
+  const getCharacters = async (page) => {
     try {
       const RES = await fetch(
         `https://rickandmortyapi.com/api/character/?page=${page}`
@@ -21,7 +21,7 @@ const CardList = () => {
   };
 
   useEffect(() => {
-    getCharacters();
+    getCharacters(page);
   }, [page]);
 
   return (
